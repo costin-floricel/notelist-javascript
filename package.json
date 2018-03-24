@@ -1,0 +1,25 @@
+{
+  "name": "notelist-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/costin-floricel/notelist-javascript.git"
+  },
+  "author": "Costin Floricel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/costin-floricel/notelist-javascript/issues"
+  },
+  "homepage": "https://github.com/costin-floricel/notelist-javascript#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-sass": "^3.2.1"
+  }
+}
