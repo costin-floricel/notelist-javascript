@@ -1,5 +1,30 @@
+// Universal reset 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%; //This defines what 1rem is - 1rem = 10px; 10px/16px = 62.5%
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.container {
+
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+    margin: 0 auto;
+	
+}
+
 h1 {
-	border: 1px solid black;
 	text-align: center;
-	background: #333;
+	text-transform: uppercase;
 }

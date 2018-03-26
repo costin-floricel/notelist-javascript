@@ -1,0 +1,60 @@
+input {
+  transition: all 0.3s ease-in-out;
+}
+  
+.form{
+  box-sizing: border-box;
+  width: 40%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  border-radius: 3px;
+
+  @include respond(tab-port) {
+    width: 80%;
+}
+  
+  &.register-form {
+    display: none;
+  }
+  @include clerfix;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  font-size: 1.1rem;
+}
+
+.form .message a {
+  color: $color-primary-dark;
+  text-decoration: none;
+}
+
+
+input{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  padding: 10px 0;
+  margin-bottom: 25px;
+  border: none;
+  border-bottom: solid 1px $color-primary;
+
+}
+
+button {
+  border: none;
+  background: $color-primary;
+  color: $color-white;
+  padding: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  
+
+  &:hover {
+    background: $color-primary-dark;
+  }
+  
+}
