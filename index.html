@@ -8,29 +8,55 @@
 <body>
 	
 	<div class="container">
-		<h1>Notelist Application</h1>
-		<div class="row ">
+		<header>
+				<h1>Notelist Application</h1>
+		</header>
 		
-					<form class="register-form form ">
+		<h2>Login or register</h2>
+		<div class="row ">
+					<form class="register-form form-toggle form">
 							<input type="text" placeholder="name"/>
 							<input type="password" placeholder="password"/>
 							<input type="text" placeholder="email address"/>
 							<button>create</button>
 							<p class="message">Already registered? <a href="#">Sign In</a></p>
 					</form>
-						<form action="" class="form">
+						<form action="" class="form form-toggle">
 								<input type="text" placeholder="username"/>
 							<input type="password" placeholder="password"/>
 							<button>login</button>
 							<p class="message">Not registered? <a href="#">Create an account</a></p>
 						</form>		
-		
 	</div>
 
+	<!--Begining Note List Application -->
+	<div class="row bottom">
+		<form class="form" id="note-form">
+				<h2 class="note">Add a new note</h2>
+				<input type="text" name="note" id="note" placeholder="New Note">	
+				<button type="submit" class="btn">Add Note</button>
+		</form>
+	</div>
+
+	<div class="row">	
+				<form class="form">
+						<h2 class="note" id="note-title">Notes</h2>
+						<input type="text" name="filter" id="filter" placeholder="Filter Notes">	
+						<ul class="collection">
+				
+						</ul>
+						<button class="btn btn-clear"><a href="#" class="clear-notes">Clear Notes</a></button>
+				</form>		
+	</div>
+
+	<footer>
+		<p>Copyright &copy; 2018 - Costin Floricel</p>
+	</footer>
 	<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
   crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
+<script src="js/note.js"></script>
 </body>
 </html>

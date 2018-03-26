@@ -8,10 +8,14 @@ input {
   margin: 0 auto;
   padding-bottom: 40px;
   border-radius: 3px;
-
   @include respond(tab-port) {
-    width: 80%;
+    width: 60%;
 }
+
+@include respond(phone) {
+  width: 90%;
+}
+
   
   &.register-form {
     display: none;
@@ -51,10 +55,67 @@ button {
   cursor: pointer;
   width: 100%;
   margin-top: 20px;
+   &.btn {
+    width: 30%;
+    margin: 0 auto;
+    float: left;
+    padding: 5px;
+   }
+
+   &.btn-clear{
+     margin-top: 5px;
+   }
   
 
   &:hover {
     background: $color-primary-dark;
   }
+ 
   
 }
+
+/*Notes form Styles*/
+
+h2.note {
+  float: left;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+button a {
+  text-decoration: none;
+  color: $color-white;
+}
+
+.collection-item {
+  list-style: none;
+  text-align: left;
+  font-size: 1.5rem;
+  background-color: $color-white;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  border: 1px solid $color-gray;
+
+  &:not(:last-child) {
+    border-bottom: none;
+  
+  }
+}
+
+.delete-btn {
+	background-color: $color-white;
+	display:inline-block;
+	cursor:pointer;
+	color: $color-black;
+	font-size: 1.5rem;
+  text-decoration:none;
+  &:before{content:"\2716";}
+  float: right;
+}
+.delete-btn:hover {
+	color: $color-primary;
+}
+.delete-btn:active {
+	position:relative;
+	top:1px;
+}
+

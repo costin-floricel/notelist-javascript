@@ -1,3 +1,5 @@
+//Functionality for the Sign-In - Register
 $('.message a').click(function(){
-  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+  $('.form-toggle').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
+

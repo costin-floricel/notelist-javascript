@@ -7,8 +7,13 @@
         margin-bottom: $gutter-vertical;
     }
 
+    &.bottom{
+        margin-bottom: 5px;
+    }
+
     @include clerfix;
 
+   
    
 
     [class^="col-"] {
