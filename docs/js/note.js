@@ -10,6 +10,8 @@ loadEventListeners();
 
 //Load all event listeners function
 function loadEventListeners(){
+  //DOM Load Event
+  document.addEventListener('DOMContentLoaded', getNotes);
 
   //Add note - event listener
   form.addEventListener('submit', addNote);
@@ -24,14 +26,33 @@ function loadEventListeners(){
   filter.addEventListener('keyup', filterNotes);
 
 }
-
+//Get Notes from Local Storage
+function getNotes(){
+  let lsnotes;
+  if(localStorage.getItem('lsnotes') === null) {
+    lsnotes = [];
+  } else {
+    lsnotes = JSON.parse(localStorage.getItem('lsnotes'));
+  }
+  lsnotes.forEach(function(lsnote){
+   
+  const li =document.createElement('li');
+  li.className = 'collection-item';
+  li.appendChild(document.createTextNode(lsnote));
+  const link = document.createElement('a');
+  link.className = 'delete-btn';
+  li.appendChild(link);
+  noteList.appendChild(li);
+  })
+}
 
 //Create the addNote function
 function addNote(e) {
   if(noteInput.value === ''){
+    
     alert('Please enter a note');
   } 
-
+  
   //Create a list item when the ADD NOTE button is clicked
   const li =document.createElement('li');
 
@@ -43,6 +64,7 @@ function addNote(e) {
 
   //Create the delete icon link
   const link = document.createElement('a');
+
   //Add a class to the a link 
   link.className = 'delete-btn';
 
@@ -52,24 +74,70 @@ function addNote(e) {
   //Append the li to the ul
   noteList.appendChild(li);
 
+  //Store the notes in Local Storage
+  storeNoteInLocalStorage(noteInput.value);
+
   //Clear Input
   noteInput.value= '';
-
   e.preventDefault();
+  
 }
 
+//Store the note in Local Storage fuction
+function storeNoteInLocalStorage(lsnote){
+  
+  let lsnotes;
+  if(localStorage.getItem('lsnotes') === null) {
+    lsnotes = [];
+  } else {
+    lsnotes = JSON.parse(localStorage.getItem('lsnotes'));
+  }
+  lsnotes.push(lsnote);
+  
+  localStorage.setItem('lsnotes', JSON.stringify(lsnotes));
+  
+}
 
 //Remove Note function
 function removeNote(e){
 
   if(e.target.parentElement.classList.contains('collection-item')) {
     e.target.parentElement.remove();
+
+    //Remove the notes from Local storage
+    removeNoteFromLocalStorage(e.target.parentElement);
   }
+}
+
+//Remove notes from Local Storage function
+function removeNoteFromLocalStorage(noteItem){
+  let lsnotes;
+  if(localStorage.getItem('lsnotes') === null) {
+    lsnotes = [];
+  } else {
+    lsnotes = JSON.parse(localStorage.getItem('lsnotes'));
+  }
+  lsnotes.forEach(function(lsnote, index){
+    if(noteItem.textContent === lsnote){
+      lsnotes.splice(index, 1);
+    }
+    });
+    localStorage.setItem('lsnotes', JSON.stringify(lsnotes));
 }
 
 //Clear Notes function
 function clearNotes() {
-  noteList.innerHTML = ' ';
+
+  while(noteList.firstChild) {
+    noteList.removeChild(noteList.firstChild);
+  }
+  //Clear Notes from Local storage
+  clearNotesFromLocalStorage();
+  localStorage.clear();
+}
+
+//Clear Notes from Local storage function
+function clearNotesFromLocalStorage() { 
 
 }
 
